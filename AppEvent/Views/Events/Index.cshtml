@@ -1,0 +1,33 @@
+@model IEnumerable<AppEvent.Models.Event>
+
+<h1>Danh sách sự kiện</h1>
+<a href="/events/create">Thêm sự kiện mới</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Tên sự kiện</th>
+        <th>Thời gian</th>
+        <th>Địa điểm</th>
+        <th>Trạng thái</th>
+        <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var ev in Model)
+    {
+        <tr>
+            <td>@ev.Name</td>
+            <td>@ev.Date.ToString("dd/MM/yyyy HH:mm")</td>
+            <td>@ev.Location</td>
+            <td>@ev.Status</td>
+            <td>
+                <a href="/events/@ev.Id">Chi tiết</a> |
+                <a href="/events/edit/@ev.Id">Sửa</a> |
+                <form method="post" action="/events/delete/@ev.Id" style="display:inline;">
+                    <button type="submit" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Xóa</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,22 @@
+@model AppEvent.Models.Event
+
+<h1>@ViewData["Title"]</h1>
+<form asp-action="@ViewData["Action"]" method="post">
+    <label for="Name">Tên sự kiện:</label>
+    <input type="text" id="Name" name="Name" value="@Model?.Name" required /><br />
+
+    <label for="Date">Thời gian:</label>
+    <input type="datetime-local" id="Date" name="Date" value="@Model?.Date.ToString("yyyy-MM-ddTHH:mm")" required /><br />
+
+    <label for="Location">Địa điểm:</label>
+    <input type="text" id="Location" name="Location" value="@Model?.Location" required /><br />
+
+    <label for="Description">Mô tả:</label>
+    <textarea id="Description" name="Description">@Model?.Description</textarea><br />
+
+    <label for="Status">Trạng thái:</label>
+    <input type="text" id="Status" name="Status" value="@Model?.Status" required /><br />
+
+    <button type="submit">Lưu</button>
+    <a href="/events">Hủy</a>
+</form>

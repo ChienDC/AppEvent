@@ -1,0 +1,9 @@
+@model AppEvent.Models.Event
+
+<h1>Chi tiết sự kiện</h1>
+<p><strong>Tên:</strong> @Model.Name</p>
+<p><strong>Thời gian:</strong> @Model.Date.ToString("dd/MM/yyyy HH:mm")</p>
+<p><strong>Địa điểm:</strong> @Model.Location</p>
+<p><strong>Mô tả:</strong> @Model.Description</p>
+<p><strong>Trạng thái:</strong> @Model.Status</p>
+<a href="/events">Quay lại danh sách</a>
